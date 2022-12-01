@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Predict laptop price</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="Free HTML Templates" name="keywords">
+    <meta content="Free HTML Templates" name="description">
+
+    <!-- Favicon -->
+    <link href="img/favicon.ico" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Rubik&display=swap" rel="stylesheet"> 
+
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+    <!-- <link href="lib/flaticon/font/flaticon.css" rel="stylesheet"> -->
+
+    <!-- Libraries Stylesheet -->
+    <!-- <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet"> -->
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href={% static "css/bootstrap.min.css" %} rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <link href={% static "css/style.css" %} rel="stylesheet">
+</head>
+
+<body>
+    <!-- Header Start -->
+    <div class="container-fluid  px-0" style="background-color: black;">
+        <div class="row gx-0">
+            <div class="col-lg-3 mt-3  d-none d-lg-block" style="background-color: black;">
+                <a href={% url "index" %} class="navbar-brand w-100 h-100 m-0 p-0 d-flex align-items-center justify-content-center">
+                    <h1 class="m-0 display-4 text-white text-uppercase">PredTop</h1>
+                </a>
+            </div>
+        </div>
+    </div>
+    <!-- Header End -->
+
+    <!-- Carousel Start -->
+    <div class="container-fluid p-0 mb-5">
+        <div id="header-carousel" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img class="w-100" src={% static "img/bg2.jpg" %} alt="Image">
+                    <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
+                        <div class="p-3" style="max-width: 900px;">
+                            <h5 class="text-white text-uppercase">Predict Laptop Price</h5>
+                            <h1 class="display-2 text-white text-uppercase mb-md-4">You Know If You Know</h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Carousel End -->
+
+
+    <!-- About Start -->
+    <div class="container-fluid p-5">
+            <div >
+                <div class="rounded  p-5 border border-dark">
+                    <ul class="nav nav-pills justify-content-between mb-3">
+                        <li class="nav-item w-25" >
+                            <a class="nav-link text-uppercase text-center w-100  border border-primary active" data-bs-toggle="pill" href="#pills-1">Predict</a>
+                        </li>
+                        <li class="nav-item w-25">
+                                <a class="nav-link text-uppercase text-center w-100 border border-primary" data-bs-toggle="pill" href="#pills-2">Features</a>
+                        </li>
+                        <li class="nav-item w-25">
+                            <a class="nav-link text-uppercase text-center w-100 border border-primary" data-bs-toggle="pill" href="#pills-3">Datasets</a>
+                    </li>
+                    </ul>
+                    <div class="tab-content">
+                        <div class="tab-pane fade show active" id="pills-1">
+                            <p class="text-secondary mb-0 ">
+                                <form  action={% url "predict" %} method = "post" class="border border-black p-2">
+                                    {% csrf_token %}
+                                    <div class="row1 ms-4">
+                                        <div class="col">
+                                        <label for="">Laptop Brands:</label>
+                                        <br>
+                                        <select class="p-2  w-75" name="brands" id="brands" aria-placeholder="hello"> 
+                                            <option value="Dell">Dell</option>
+                                            <option value="Acer">Acer</option>
+                                            <option value="Asus">Asus</option>
+                                            <option value="Apple">Apple</option>
+                                            <option value="Xiomi">Xiomi</option>
+                                            <option value="Lenovo">Lenovo</option>
+                                            <option value="HP">HP</option>
+                                            <option value="Vero">Vero</option>
+                                            <option value="Microsoft">Microsoft</option>
+                                            <option value="Toshiba">Toshiba</option>
+                                            <option value="MSI">MSI</option>
+                                            <option value="Huawei">Huawei</option>
+                                            <option value="Google">Google</option>
+                                            <option value="Razer">Razer</option>
+                                            <option value="Samsung">Samsung</option>
+                                            <option value="Mediacom">Mediacom</option>
+                                            <option value="Fujitsu">Fujitsu</option>
+                                            <option value="Chuwi">Chuwi</option>
+                                            <option value="LG">LG</option>
+                                        </select>
+                                        </div>
+                                        <br>
+                                        <div class="col">
+                                        <label for="">RAM:</label>
+                                        <br>
+                                        <select class="p-2 w-75" name="ram" id="ram"> 
+                                            <option value="2">2</option>
+                                            <option value="4">4</option>
+                                            <option value="6">6</option>
+                                            <option value="8">8</option>
+                                            <option value="12">12</option>
+                                            <option value="16">16</option>
+                                            <option value="24">24</option>
+                                            <option value="32">32</option>
+                                            <option value="64">64</option>
+                                        </select>
+                                        </div>
+                                        <br>
+                                        <div class="col">
+                                        <label for="">Weight:</label>
+                                        <br>
+                                        <input class="p-2 w-75  " type="number" name="weight" id="" placeholder="eg. 16" style="height:40px">
+                                        </div>
+                                    </div>
+                                    <br>
+                                    <div class="row2  ms-4">
+                                    <div class="col">
+                                        <label for="">Operating System:</label>
+                                        <br>
+                                        <select class="p-2  w-75"  name="os" id="brands"> 
+                                            <option value="Windows">Windows</option>
+                                            <option value="Mac">Mac</option>
+                                            <option value="Others/No Os/Linux">Others/No OS/Linux</option>
+                                        </select>
+                                    </div>
+                                    <div class="col">
+                                       <label for="">In Plan Switching(LCD OR NOT):</label>
+                                       <br>
+                                        <select class="p-2  w-75"  name="ips" id="brands"> 
+                                            <option value="0">No</option>
+                                            <option value="1">Yes</option>
+                                        </select>
+                                       </div>
+                                    <div class="col">
+                                        <label for="">SSD:</label>
+                                        <br>
+                                        <select class="p-2  w-75"  name="ssd" id="brands"> 
+                                            <option value="0">0</option>
+                                            <option value="8">8</option>
+                                            <option value="16">16</option>
+                                            <option value="32">32</option>
+                                            <option value="128">128</option>
+                                            <option value="180">180</option>
+                                            <option value="256">256</option>
+                                            <option value="512">512</option>
+                                            <option value="1000">1000</option>
+                                            <option value="1024">1024</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <br>
+                                <div class="row3  ms-4">
+                                 <div class="col">
+                                    <label for="">Resolution:</label>
+                                    <br>
+                                    <select class="p-2  w-75"  name="resolution" id="brands"> 
+                                        <option value="1920x1080">1920x1080</option>
+                                        <option value="1366x768">1366x768</option>
+                                        <option value="1600x900">1600x900</option>
+                                        <option value="3840x2160">3840x2160</option>
+                                        <option value="3200x1800">3200x1800</option>
+                                        <option value="2880x1800">2880x1800</option>
+                                        <option value="2560x1600">2560x1600</option>
+                                        <option value="2560x1440">2560x1440</option>
+                                        <option value="2304x1440">2304x1440</option>
+                                    </select>
+                                    </div>
+                                 <div class="col">
+                                     <label for="">GPU Brand:</label>
+                                     <br>
+                                     <select class="p-2  w-75"  name="gpu" id="brands"> 
+                                        <option value="Intel">Intel</option>
+                                          <option value="Nvidia">Nvidia</option>
+                                          <option value="AMD">AMD</option>
+                                      </select>
+                                 </div>
+                                 <div class="col">
+                                     <label for="">Type Name:</label>
+                                     <br>
+                                     <select class="p-2  w-75"  name="typeName" id="brands"> 
+                                        <option value="Notebook">Notebook</option>
+                                        <option value="Ultrabook">Ultrabook</option>
+                                        <option value="Netbook">Netbook</option>
+                                        <option value="Gaming">Gaming</option>
+                                        <option value="2 in 1 Convertible">2 in 1 Convertible</option>
+                                        <option value="Workstation">Workstation</option>
+                                    </select>
+                                 </div>
+                             </div>
+                             <br>
+                             <div class="row4  ms-4">
+                              <div class="col">
+                                  <label for="">HDD (GB):</label>
+                                  <br>
+                                  <select class="p-2  w-75"  name="hdd" id="brands"> 
+                                    <option value="0">0</option>
+                                    <option value="32">32</option>
+                                    <option value="128">128</option>
+                                    <option value="500">500</option>
+                                    <option value="1000">1000</option>
+                                    <option value="2000">2000</option>
+                                </select>
+                              </div>
+                              <div class="col">
+                                  <label for="">Touch Screen:</label>
+                                  <br>
+                                  <select class="p-2  w-75"  name="touchScreen" id="brands">
+                                    <option value="0">No</option>
+                                      <option value="1">Yes</option>
+                                   
+                                  </select>
+                              </div>
+                              <div class="col">
+                                  <label for="">CPU Brand:</label>
+                                  <br>
+                                  <select class="p-2  w-75"  name="cpu" id="brands">
+                                    <option value="Intel Core i3">Intel Core i3</option> 
+                                     <option value="Intel Core i5">Intel Core i5</option>
+                                     <option value="Intel Core i7">Intel Core i7</option>
+                                     <option value="AMD Processor">AMD Processor</option>
+                                     <option value="Other Intel Processor">Other Intel Processor</option>
+                                 </select>
+                              </div>
+                          </div>
+
+                            <div class="row5  ms-4 mt-3 pb-4">
+                                <div class="col">
+                                    
+                                </div>
+                                <div class="col">
+                                    <label for="">Screen Size:</label>
+                                    <br>
+                                    <input class="p-2 w-75  " type="number" name="size" id="" placeholder="eg. 16" style="height:40px">
+                                </div>
+                                <div class="col">
+                                    
+                                </div>
+                            </div>
+                            <div class="row5  ms-4 mt-5 pb-4">
+                                <div class="col">
+                                    
+                                </div>
+                                <div class="col">
+                                        <button class="btn btn-dark rounded w-75">
+                                            Predict
+                                        </button>
+                                </div>
+                                <div class="col">
+                                    
+                                </div>
+                            </div>
+                          </form>
+                          <div class=" p-4" style="background-color: black;">
+                            <h3 class="text-white">Price of the Laptop(Nu.): <span>{{predictedValue}}  </span></h3>
+                         
+                          </div>
+                            </p>
+                        </div>
+                        <div class="tab-pane fade" id="pills-2">
+                            <p class="text-secondary mb-0">
+                                <div class=" p-3 border border-black">
+                                Features used:
+                                <ul>
+                                    <li>Company</li>
+                                    <li>Type Name</li>
+                                    <li>RAM</li>
+                                    <li>HDD</li>
+                                    <li>SDD</li>
+                                    <li>GPU Brand</li>
+                                    <li>CPU Brand</li>
+                                    <li>Operating System</li>
+                                    <li>Weight</li>
+                                    <li>Touch Screen</li>
+                                    <li>In plan switching</li>
+                                    <li>Pixel per Inch</li>
+
+                                </ul>
+                                <hr>
+                                <div>
+                                    Company <br>
+• Apple: is definitely one of the luxury brands when it comes to Laptops, Smart-
+phones, Computers and Tablets. <br>
+• HP: It is known as Hewlett-Packard is one of the oldest electronics brands that is
+not as popular as it used to be. <br>
+• Lenove: is one of the most premium laptop brands and their prices are slightly
+higher compared to other manufacturers. <br>
+• Acer: is a Taiwanese computer-manufacturer with a global clientele
+• Dell: It is one of the best windows laptop. <br>
+• Asus: laptops are mostly known for being affordable compared to other brands and
+reason behind that might be their in-house manufacturing of motherboards. <br>
+• Chuwi <br>
+• MSI <br> 
+• microsoftbr <br>
+• Toshiba <br>
+• Huawei <br>
+• Xiaomi <br>
+• Razer <br>
+<hr>
+TypeName <br>
+• Ultrabook <br>
+• Notebook <br>
+• Netbook <br>
+• Gaming <br>
+• 2 in 1 Convertible <br>
+<hr>
+Inches <br>
+It shows the display of Laptop <br>
+<hr>
+ScreenResolution <br>
+ScreenResolution is expressed using horizontal and vertical pixel counts. <br>
+<hr>
+CPU <br>
+It shows the intel Core of laptop <br>
+<hr>
+RAM <br>
+It is essentially short term memory where data is stored <br>
+<hr>
+Memory <br>
+It shows the storage in terms of SSD <br>
+<hr>
+Gpu <br>
+It is Graphics processing unit, a specialized processor originally designed to accelerate 
+graphics rendering <br>
+<hr>
+ Operating System <br>
+• macOS <br>
+• NoOS <br>
+• Windows 10 <br>
+• Linux <br>
+<hr>
+ Weight <br>
+It show weight of laptop in terms of kg <br>
+                                </div>
+                                  </div>
+                            </p>
+                        </div>
+                        <div class="tab-pane fade" id="pills-3">
+                            <p class="text-secondary mb-0">
+                                <a href={% static "ds.csv" %} download>
+                                <div class=" p-3" style="background-color: black;">
+                                    <h3 class="text-white text-center rounded">Download Data</h3>
+                                 
+                                  </div></a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+    <!-- About End -->
+
+
+    
+   
+
+    <!-- Footer Start -->
+    <div class="container-fluid text-secondary px-5 mt-5" style="background-color: black;">
+        <div class="row gx-5">
+            <div class="col-lg-8 col-md-6">
+                <div class="row gx-5">
+                    <div class="col-lg-3 col-md-12 pt-0 pt-lg-5 mb-5"></div>
+                    <div class="col-lg-3 col-md-12 pt-5 mb-5 text-center">
+                        <h4 class="text-uppercase text-light mb-4">Predtop</h4>
+                        <div class="d-flex mb-2">
+                            <i class="bi bi-geo-alt text-primary me-2"></i>
+                            <p class="mb-0">Gyelposhing, Mongar, Bhutan</p>
+                        </div><br>
+                        <div class="d-flex mt-5">
+                            <a class="btn btn-primary btn-square rounded-circle me-2" href="#"><i class="fab fa-twitter"></i></a>
+                            <a class="btn btn-primary btn-square rounded-circle me-2" href="#"><i class="fab fa-facebook-f"></i></a>
+                            <a class="btn btn-primary btn-square rounded-circle me-2" href="#"><i class="fab fa-linkedin-in"></i></a>
+                            <a class="btn btn-primary btn-square rounded-circle" href="#"><i class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-12 pt-0 pt-lg-5 mb-5"></div>
+                    <div class="col-lg-3 col-md-12 pt-0 pt-lg-5 mb-5 text-center">
+                        <h4 class="text-uppercase text-light mb-4">Quick Links</h4>
+                        <div class="d-flex flex-column justify-content-start">
+                            <a class="text-secondary mb-2" href="#"><i class="bi bi-arrow-right text-primary me-2"></i>Home</a> <br>
+                            <a class="text-secondary mb-2" href="#"><i class="bi bi-arrow-right text-primary me-2"></i>About Us</a><br>
+                            <a class="text-secondary mb-2" href="#"><i class="bi bi-arrow-right text-primary me-2"></i>Services</a><br>
+                            <a class="text-secondary mb-2" href="#"><i class="bi bi-arrow-right text-primary me-2"></i>Team</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer End -->
+
+
+
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-dark py-3 fs-4 back-to-top"><i class="bi bi-arrow-up"></i></a>
+
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/waypoints/waypoints.min.js"></script>
+    <script src="lib/counterup/counterup.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script> -->
+
+    <!-- Template Javascript -->
+</body>
+
+</html>
